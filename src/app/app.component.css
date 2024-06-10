@@ -1,0 +1,10 @@
+.banner{
+  text-decoration: none;
+  cursor:pointer;
+  color: white;
+  animation: 100s ease-in;
+}
+.banner:hover{
+  color: wheat;
+  animation: 100s ease-in;
+}
