@@ -11,9 +11,9 @@ export class ProductService {
 
   }
 
-  getAllProducts(sort:string = '' , brand:number = 0 , type:number = 0,take:number  = 10, skip:number =1){
+  getAllProducts(sort:string = '' , brand:number = 0 , type:number = 0,take:number  = 10, skip:number =1,search:string = ""){
     return this.http.get(environment.baseUrl + "Product/getProducts?sortedBy="+sort + "&brandId="+brand
-      +"&typeId="+type+"&take="+take+"&skip="+skip);
+      +"&typeId="+type+"&take="+take+"&skip="+skip+"&searchText="+search);
   }
 
 }

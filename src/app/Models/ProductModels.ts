@@ -12,5 +12,5 @@ export interface ProductListPagination {
   pageIndex: number
   pageSize: number
   count: number
-  products: ProductList[]
+  producs: ProductList[]
 }
