@@ -1,7 +1,13 @@
 <div class="col" style="min-height: 300px;">
   <div class="card h-100 shadow-sm">
-    <div class="img-container justify-content-center d-flex" style="min-height: 213px;">
-      <img src="{{product.pictureUrl}}" width="200px">
+    <div class="img-wrapper">
+      <img src="{{product.pictureUrl}}" class="card-img-top" alt="...">
+      <div class="text-center icons-img animate align-items-center justify-content-center d-flex">
+        <button mat-icon-button style="font-size: 20px;">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+        <a type="button" class="mx-2" routerLink="/productDetail/{{product.id}}" mat-flat-button color="primary">view</a>
+        </div>
     </div>
     <div class="card-body">
       <a href="#" style="text-decoration: none;">
@@ -14,16 +20,6 @@
       <p class="card-text">
         {{product.description}}
       </p>
-
-        <div class="align-items-center d-flex">
-          <button mat-icon-button style="font-size: 20px;">
-            <mat-icon>shopping_cart</mat-icon>
-          </button>
-          <a type="button" class="mx-2" mat-flat-button color="primary">
-            view
-          </a>
-        </div>
-
     </div>
   </div>
 </div>

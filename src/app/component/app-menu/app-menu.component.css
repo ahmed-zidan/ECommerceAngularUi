@@ -12,3 +12,9 @@
   min-width: 20px;
 
 }
+
+
+a.active{
+  color: white;
+  font-size: large;
+}

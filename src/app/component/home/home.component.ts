@@ -73,10 +73,7 @@ export class HomeComponent implements OnInit {
     this.productService.getAllProducts(this.sort , this.brand,this.type,this.take,this.skip ,this.searchText ).subscribe({
       next:res=>{
         this.products = res as ProductListPagination;
-        // this.take = this.products.pageSize;
-        // this.skip = this.products.pageIndex;
         this.totalCount = this.products.count;
-        console.log(this.totalCount);
       },error:err=>{
         let error = err as Error;
         this.toast.error(error.message);
@@ -111,7 +108,6 @@ export class HomeComponent implements OnInit {
     this.searchText = value;
     this.skip = 0;
     this.getProducts();
-    console.log(value);
   }
 
   Reset(search : any){

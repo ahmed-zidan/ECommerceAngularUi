@@ -15,5 +15,8 @@ export class ProductService {
     return this.http.get(environment.baseUrl + "Product/getProducts?sortedBy="+sort + "&brandId="+brand
       +"&typeId="+type+"&take="+take+"&skip="+skip+"&searchText="+search);
   }
+  getProduct(id : string){
+    return this.http.get(environment.baseUrl + "Product/getProduct/"+id);
+  }
 
 }

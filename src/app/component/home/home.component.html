@@ -42,9 +42,11 @@
     </div>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          @if(products!=undefined && products.producs != undefined){
           @for (item of products.producs; track $index) {
             <app-product [product]="item"></app-product>
           }
+        }
         </div>
         <div class="row mt-5 mb-5">
           <div class="col-md-6 mx-auto" style="font-size: 20px;">
