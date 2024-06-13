@@ -3,7 +3,7 @@
     <div class="img-wrapper">
       <img src="{{product.pictureUrl}}" class="card-img-top" alt="...">
       <div class="text-center icons-img animate align-items-center justify-content-center d-flex">
-        <button mat-icon-button style="font-size: 20px;">
+        <button (click)="addProductToBasket()" mat-icon-button style="font-size: 20px;">
           <mat-icon>shopping_cart</mat-icon>
         </button>
         <a type="button" class="mx-2" routerLink="/productDetail/{{product.id}}" mat-flat-button color="primary">view</a>

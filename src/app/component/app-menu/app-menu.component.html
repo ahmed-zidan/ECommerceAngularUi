@@ -21,9 +21,9 @@
         </li>
       </ul>
       <div class="d-flex align-items-center">
-        <button  mat-icon-button class="me-5 position-relative">
+        <button routerLink="basket"  mat-icon-button class="me-5 position-relative">
           <mat-icon>shopping_cart</mat-icon>
-          <div class="cart-no">5</div>
+          <div class="cart-no">{{this.quantity}}</div>
         </button>
         <a mat-flat-button color="primary" routerLink="login" routerLinkActive="active" class="me-2">Login</a>
         <a mat-flat-button color="accent" routerLink="register" routerLinkActive="active" class="me-3">Register</a>

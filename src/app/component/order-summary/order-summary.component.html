@@ -1,0 +1,40 @@
+@if(orderSummary != null){
+<div class="card">
+  <div class="card-header">
+    Order Summary
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <span>  order subtotals</span>
+      </div>
+      <div class="col">
+        <span>{{orderSummary.subtotals | currency}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <span>  order shipping</span>
+      </div>
+      <div class="col">
+        <span>{{orderSummary.shipping| currency}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <span>  order totals</span>
+      </div>
+      <div class="col">
+        <span>{{orderSummary.totals| currency}}</span>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col">
+        <a mat-flat-button routerLink="/checkout" color="primary">Proceed To Checkout</a>
+      </div>
+    </div>
+  </div>
+</div>
+}@else {
+  <h2>There are no items in basket</h2>
+}
