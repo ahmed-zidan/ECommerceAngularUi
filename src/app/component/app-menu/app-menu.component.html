@@ -25,8 +25,24 @@
           <mat-icon>shopping_cart</mat-icon>
           <div class="cart-no">{{this.quantity}}</div>
         </button>
-        <a mat-flat-button color="primary" routerLink="login" routerLinkActive="active" class="me-2">Login</a>
-        <a mat-flat-button color="accent" routerLink="register" routerLinkActive="active" class="me-3">Register</a>
+        @if(getUserInfo() && user && user.displayName){
+
+          <ul class="nav-item dropdown mx-3">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              wlecome {{user.displayName}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item d-flex" routerLink="/basket" routerLinkActive="active" ><mat-icon style="font-size: 20px;">shopping_cart</mat-icon> View Basket</a></li>
+              <li><a class="dropdown-item d-flex" routerLink="/orders" routerLinkActive="active" ><mat-icon style="font-size: 20px;">watch</mat-icon> View Orders</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item d-flex" routerLink="/login" routerLinkActive="active"><mat-icon style="font-size: 20px;">logout</mat-icon> Logout</a></li>
+            </ul>
+          </ul>
+
+        }@else{
+          <a mat-flat-button color="primary" routerLink="login" routerLinkActive="active" class="me-2">Login</a>
+          <a mat-flat-button color="accent" routerLink="register" routerLinkActive="active" class="me-3">Register</a>
+        }
       </div>
     </div>
   </div>
