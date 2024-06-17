@@ -1,1 +1,36 @@
-<p>checkout works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+
+<mat-horizontal-stepper [linear]="false" #stepper="matHorizontalStepper">
+  <mat-step label="Address">
+    <app-checkout-address [order] = "order" ></app-checkout-address>
+    <button mat-button matStepperNext>next</button>
+  </mat-step>
+  <mat-step label="Delivery">
+    <app-checkout-delivery [order] = "order"></app-checkout-delivery>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>next</button>
+  </mat-step >
+  <mat-step label="Review">
+    <app-checkout-review [order] = "order"></app-checkout-review>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>next</button>
+  </mat-step >
+  <mat-step label="Payment">
+    <app-checkout-payment [order] = "order"></app-checkout-payment>
+      <button mat-button matStepperPrevious>Back</button>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+
+
+
+    </div>
+    <div class="col-md-4">
+      <app-order-summary></app-order-summary>
+    </div>
+  </div>
+</div>
+

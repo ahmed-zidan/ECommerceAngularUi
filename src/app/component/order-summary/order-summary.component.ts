@@ -5,6 +5,8 @@ import { Toast } from 'ngx-toastr';
 import { CurrencyPipe } from '@angular/common';
 import { MaterialModule } from '../../MaterialModule';
 import { RouterLink } from '@angular/router';
+import { DeliveryMethodsDto } from '../../Models/Order';
+import { OrderService } from '../../Services/order.service';
 
 @Component({
   selector: 'app-order-summary',
@@ -16,10 +18,11 @@ import { RouterLink } from '@angular/router';
 export class OrderSummaryComponent implements OnInit {
   orderSummary!:IOrderSummary;
   basket!:ICustomerBasket;
-  constructor(private basketService:BasketService){
+  //delivery!:DeliveryMethodsDto;
+  constructor(private basketService:BasketService,private orderService:OrderService){
     effect(()=>{
       this.basket = this.basketService._basket();
-      let shepp = 0;
+      let shepp = this.orderService._Delivery().price;
       let subt = this.basket.basketItem.reduce((a,b)=> (b.quantity*b.price)+a,0)
       this.orderSummary = {shipping :shepp,subtotals:subt,totals:shepp+subt};
     })

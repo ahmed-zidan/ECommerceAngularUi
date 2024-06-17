@@ -1,0 +1,39 @@
+<form #myForm="ngForm">
+<div class="container">
+  <div class="row">
+    <h2>Shipping Address</h2>
+    <div class="col">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="order.shippingAddress.firstName" name="firstName" required #firstName="ngModel" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>street</mat-label>
+        <input matInput [(ngModel)]="order.shippingAddress.street" name="street" required #street="ngModel" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>state</mat-label>
+        <input matInput [(ngModel)]="order.shippingAddress.state" name="state" required #state="ngModel" />
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="order.shippingAddress.lastName" name="lastName" required #lastName="ngModel" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>city</mat-label>
+        <input matInput [(ngModel)]="order.shippingAddress.city" name="city" required #city="ngModel" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>zipCode</mat-label>
+        <input matInput [(ngModel)]="order.shippingAddress.zipCode" name="zipCode" required #city="ngModel" />
+      </mat-form-field>
+      <button mat-flat-button [disabled]="!myForm.valid" (click)="updateAddress()" color="primary">
+        Set As Default Address
+      </button>
+    </div>
+  </div>
+</div>
+
+</form>

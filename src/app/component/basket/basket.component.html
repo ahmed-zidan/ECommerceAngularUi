@@ -1,67 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col-md-5">Product</th>
-            <th scope="col">price</th>
-            <th scope="col" class="text-center">quantity</th>
-            <th scope="col">Total</th>
-            <th scope="col">Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          @if(myBasket && myBasket.basketItem){
-          @for (item of this.myBasket.basketItem; track $index) {
-          <tr>
-            <td>
-              <div class="row">
-                <div class="col-md-1">
-                  <img src="{{item.pictureUrl}}" class="img-fluid" style="max-width: 40px;">
-                </div>
-                <div class="col mx-1">
-                  <div class="row">
-                    <div class="col">
-                      <div style="color: darkgoldenrod;">{{item.productName}}</div>
-                      <span>type:{{item.type}}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>{{item.price}}</td>
-            <td>
-              <div class="row">
-                <div class="col-md justify-content-center d-flex">
-                  <button (click)="decreaseItem(item)" mat-icon-button>
-                    <mat-icon>remove</mat-icon>
-                  </button>
-                  <input matInput [(ngModel)]="item.quantity" class="form-control" style="width: 60px;">
-                    <button (click)="increaseItem(item)" mat-icon-button color="primary">
-                    <mat-icon >add</mat-icon>
-                  </button>
-                </div>
-              </div>
-
-            </td>
-            <td>
-              {{item.quantity * item.price | currency}}
-            </td>
-            <td>
-              <button (click)="deleteItem(item.id)" mat-icon-button color="accent">
-                <mat-icon >delete</mat-icon>
-              </button>
-            </td>
-
-          </tr>
-        }
-      }
-        </tbody>
-      </table>
+      <app-basket-summery></app-basket-summery>
       <div class="row">
         <div class="col">
           <app-order-summary></app-order-summary>
+          <div class="row mt-2">
+            <div class="col">
+              <a mat-flat-button routerLink="/checkout" color="primary">Proceed To Checkout</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

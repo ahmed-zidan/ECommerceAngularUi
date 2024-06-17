@@ -17,6 +17,8 @@ export const ErrorInterceptor: HttpInterceptorFn = (req, next) => {
           taost.error(error.error.message , "error");
          }if(error.status === 500){
           taost.error(error.error.message , "error");
+         }if(error.status === 405){
+          taost.error("Internal error" , "error");
          }else{
           taost.error(error.error.message , "error");
         }

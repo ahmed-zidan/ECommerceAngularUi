@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col">
+
+<mat-button-toggle-group  name="fontStyle" aria-label="Font Style">
+  @for (item of DeliveryMethodsDto; track $index) {
+  <mat-button-toggle (change)="changeDelivery(item)">
+    <div>
+    <div class="badge bg-success">{{item.shortName}}</div>
+    <div>{{item.description}}</div>
+    <div>{{item.price}}</div>
+    <div>{{item.deliveryTime}}</div>
+  </div>
+  </mat-button-toggle>
+}
+</mat-button-toggle-group>
+
+  </div>
+</div>
