@@ -8,7 +8,7 @@ import { ProductList } from '../Models/ProductModels';
   providedIn: 'root'
 })
 export class BasketService {
-  _basket = signal<ICustomerBasket>({basketItem:[] , id:"0"});
+  _basket = signal<ICustomerBasket>({basketItem:[] , id:"0",clientSecret:"",deliveryMethodId:0,paymentIntentId:""});
   constructor(private http:HttpClient) {
 
    }
@@ -25,6 +25,12 @@ export class BasketService {
    }
    deleteBasket(key : string){
     return this.http.delete(environment.baseUrl + "Basket/deleteBasket/" + key);
+   }
+
+
+   createPaymentIntent(){
+    let basketId = localStorage.getItem("basketId");
+    return this.http.get(environment.baseUrl + "Payment/createOrUpdatePayment?basketId="+basketId);
    }
 
 

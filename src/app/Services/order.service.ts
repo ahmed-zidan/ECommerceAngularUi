@@ -23,4 +23,7 @@ export class OrderService {
   getOrders(email:string){
     return this.http.get(environment.baseUrl+"Order/getOrders?email="+email);
   }
+  getOrder(email:string , id:string){
+    return this.http.get(environment.baseUrl+"Order/getOrder?id="+id+"&email="+email);
+  }
 }

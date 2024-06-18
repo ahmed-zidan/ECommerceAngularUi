@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Total</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of orders; track $index) {
+            <tr style="cursor: pointer;" routerLink="/orderDetail/{{item.id}}">
+              <th scope="row">{{item.id}}</th>
+              <td>{{item.orderDate | date:'medium'}}</td>
+              <td>{{item.total}}</td>
+              <td>{{item.status}}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

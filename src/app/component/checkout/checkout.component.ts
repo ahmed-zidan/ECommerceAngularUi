@@ -10,6 +10,8 @@ import { CheckoutPaymentComponent } from '../checkout-payment/checkout-payment.c
 import { CheckoutReviewComponent } from '../checkout-review/checkout-review.component';
 import { DeliveryMethodsDto, OrderDto, ShippingAddress } from '../../Models/Order';
 import { UserService } from '../../Services/user-service.service';
+import { BasketService } from '../../Services/basket.service';
+import { CdkStepper } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-checkout',
@@ -31,7 +33,7 @@ export class CheckoutComponent implements OnInit {
     street:"",
     zipCode:""
   }};
-  constructor(private toast:ToastrService , private route:Router,private userService:UserService){
+  constructor(private toast:ToastrService , private route:Router,private userService:UserService,private basketService:BasketService){
 
   }
   ngOnInit(): void {
@@ -43,6 +45,19 @@ export class CheckoutComponent implements OnInit {
 
       },error:err=>{
         this.toast.error(err.error.message , "Error");
+      }
+    })
+  }
+
+
+  createPaymentIntent(stepper:CdkStepper){
+    this.basketService.createPaymentIntent().subscribe({
+      next:res=>{
+        this.toast.success("Payment has been successfully confirmed" , "Success");
+        stepper.next();
+        console.log(res);
+      },error:err=>{
+        this.toast.error(err.error.message,"Error");
       }
     })
   }

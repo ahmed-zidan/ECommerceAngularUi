@@ -3,7 +3,7 @@
 
 <mat-button-toggle-group  name="fontStyle" aria-label="Font Style">
   @for (item of DeliveryMethodsDto; track $index) {
-  <mat-button-toggle (change)="changeDelivery(item)">
+  <mat-button-toggle [checked]="item.id==currDelivery.id" (change)="changeDelivery(item)">
     <div>
     <div class="badge bg-success">{{item.shortName}}</div>
     <div>{{item.description}}</div>

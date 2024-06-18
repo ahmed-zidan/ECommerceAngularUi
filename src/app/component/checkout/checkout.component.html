@@ -15,7 +15,7 @@
   <mat-step label="Review">
     <app-checkout-review [order] = "order"></app-checkout-review>
     <button mat-button matStepperPrevious>Back</button>
-    <button mat-button matStepperNext>next</button>
+    <button mat-flat-button color="accent" (click)="createPaymentIntent(stepper)">Confirm Payment</button>
   </mat-step >
   <mat-step label="Payment">
     <app-checkout-payment [order] = "order"></app-checkout-payment>

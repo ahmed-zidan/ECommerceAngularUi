@@ -14,11 +14,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class CheckoutDeliveryComponent implements OnInit {
   @Input() order!:OrderDto;
+  currDelivery=  this.orderService._Delivery();
   DeliveryMethodsDto:DeliveryMethodsDto[] = [];
 constructor(private orderService:OrderService , private toast:ToastrService){
 
 }
   ngOnInit(): void {
+    //this.currDelivery.id = 1;
+    console.log(this.currDelivery.id);
     this.orderService.getDeliveryMethods().subscribe({
       next:res=>{
        this.DeliveryMethodsDto = res as DeliveryMethodsDto[];

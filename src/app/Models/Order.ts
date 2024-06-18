@@ -23,18 +23,20 @@ export interface DeliveryMethodsDto {
 }
 
 export interface OrderToReturnDto {
+  id:number;
   buyerEmail: string
   orderDate: string
   shipAddress: ShippingAddress
   deliveryMethod: DeliveryMethodsDto
   orderItems: OrderItem[]
   subTotal: number
-  status: number
+  status: string
   paymentIntentId: any
   total: number
 }
 
 export interface OrderItem {
+  id:number
   productId: number
   productName: string
   pictureUrl: string

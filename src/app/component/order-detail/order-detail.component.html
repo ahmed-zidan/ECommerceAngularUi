@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col-md-5">Product</th>
+            <th scope="col">price</th>
+            <th scope="col" class="text-center">quantity</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          @if(order && order.orderItems){
+
+          @for (item of this.order.orderItems; track $index) {
+          <tr>
+            <td>
+              <div class="row">
+                <div class="col-md-1">
+                  <img src="{{item.pictureUrl}}" class="img-fluid" style="max-width: 40px;">
+                </div>
+                <div class="col mx-1">
+                  <div class="row">
+                    <div class="col">
+                      <div style="color: darkgoldenrod;">{{item.productName}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>{{item.price}}</td>
+
+            <td>
+              <div class="row">
+                <div class="col-md justify-content-center d-flex">
+                  <input matInput disabled="true" [(ngModel)]="item.quantity" class="form-control" style="width: 60px;">
+               </div>
+              </div>
+
+            </td>
+
+            <td>
+              {{item.quantity * item.price | currency}}
+            </td>
+          </tr>
+        }
+      }
+        </tbody>
+      </table>
+
+    </div>
+    <div class="col">
+
+      @if(order != null){
+        <div class="card">
+          <div class="card-header">
+            Order Summary
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <span>  order subtotals</span>
+              </div>
+              <div class="col">
+                <span>{{order.subTotal| currency}}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span>  order shipping</span>
+              </div>
+              <div class="col">
+                <span>{{order.deliveryMethod.price| currency}}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span>  order totals</span>
+              </div>
+              <div class="col">
+                <span>{{order.total| currency}}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        }@else {
+          <h2>There are no items in basket</h2>
+        }
+
+
+
+    </div>
+  </div>
+</div>
